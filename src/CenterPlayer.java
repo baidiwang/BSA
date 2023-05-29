@@ -1,8 +1,8 @@
-package uk.ac.bham.BSA;
+package src;
 
 public class CenterPlayer extends Player {
-    public int getDefense() {
-        return 0;
+    public Double getDefense() {
+        return 0.0;
     }
 
     public int getRebounding() {

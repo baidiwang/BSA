@@ -1,4 +1,4 @@
-package uk.ac.bham.BSA;
+package src;
 
 public class GuardPlayer extends Player {
     public int getPassingHandling() {

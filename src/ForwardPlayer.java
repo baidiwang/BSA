@@ -1,4 +1,4 @@
-package uk.ac.bham.BSA;
+package src;
 
 public class ForwardPlayer extends Player {
     public int getRebounding() {
