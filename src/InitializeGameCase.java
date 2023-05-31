@@ -1,5 +1,3 @@
-package src;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -94,27 +92,6 @@ public class InitializeGameCase {
         }
     }
 
-
-//    public class GenericTeam<G> {
-//        private G 0;
-//        private String teamName;
-//        public GenericTeam(G 0, String teamName) {
-//            this.0 = 0;
-//            this.teamName = teamName;
-//        }
-//        public G getObject() {
-//            return 0;
-//        }
-//        public static void main(String[] args) {
-//            GenericTeam<String> name = new GenericTeam<String>("BOS", "BOS");
-//            GenericTeam<Integer> grades = new GenericTeam<Integer>(4.80 "four point eight zero");
-//
-//            System.out.println("name object = 4.80? => " + (name.getObject() == 4.80 ));
-//            System.out.println("name object = BOS? => " + (grades.getObject().equals("BOS")));
-//        }
-//    }
-
-
     public static void main(String[] args) {
         String fileName = "NBA_data.txt";
         InitializeGameCase initializeGameCase = new InitializeGameCase();
@@ -122,5 +99,19 @@ public class InitializeGameCase {
         for (Team team: initializeGameCase.teams) {
             System.out.println(team.toString());
         }
+
+        TeamQuery teamQuery = new TeamQuery(initializeGameCase.teams);
+        Request<TeamQuery> teamQueryRequest = new Request<>(teamQuery); //
+
+        PlayerQuery playerQuery = new PlayerQuery(initializeGameCase.teams);
+        Request<PlayerQuery> playerQueryRequest = new Request<>(playerQuery);
+
+        System.out.println("===================== Query Team Result ===================== ");
+        Team queryTeam = teamQueryRequest.getAction().performAction("MIN");
+        System.out.println(queryTeam.toString());
+
+        System.out.println("=====================  Query Player Result ===================== ");
+        Player queryPlayer = playerQueryRequest.getAction().performAction("Anthony Davis");
+        System.out.println(queryPlayer.toString());
     }
 }

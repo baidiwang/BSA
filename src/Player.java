@@ -1,5 +1,3 @@
-package src;
-
 public class Player {
     private String id;
     private String name;
@@ -45,10 +43,6 @@ public class Player {
 
     public void setTotal(Double total) {
         this.total = total;
-    }
-
-    public Stats getStats() {
-        return null;
     }
 
     public String toString() {

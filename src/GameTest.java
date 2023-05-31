@@ -1,8 +1,4 @@
-package src;
-
 import org.junit.jupiter.api.Test;
-import src.InitializeGameCase;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {

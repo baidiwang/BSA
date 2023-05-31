@@ -1,5 +1,3 @@
-package src;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +23,8 @@ public class Team {
     public void addPlayer(Player player) {
         playerList.add(player);
     }
+
+    public List<Player> getPlayerList() { return playerList; }
 
     public String toString() {
         String str = "Team Name: " + name + "\n";
