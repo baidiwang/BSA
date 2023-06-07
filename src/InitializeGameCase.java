@@ -100,18 +100,23 @@ public class InitializeGameCase {
             System.out.println(team.toString());
         }
 
-        TeamQuery teamQuery = new TeamQuery(initializeGameCase.teams);
-        Request<TeamQuery> teamQueryRequest = new Request<>(teamQuery); //
+        TeamQuery teamQuery = new TeamQuery(initializeGameCase.teams, "MIN");
+        Request<TeamQuery> teamQueryRequest = new Request<>(teamQuery);
 
-        PlayerQuery playerQuery = new PlayerQuery(initializeGameCase.teams);
+        PlayerQuery playerQuery = new PlayerQuery(initializeGameCase.teams, "Anthony Davis");
         Request<PlayerQuery> playerQueryRequest = new Request<>(playerQuery);
 
+        RequestRecord requestRecord = new RequestRecord();
+
         System.out.println("===================== Query Team Result ===================== ");
-        Team queryTeam = teamQueryRequest.getAction().performAction("MIN");
+        Object queryTeam = requestRecord.makeRequest(teamQueryRequest);
         System.out.println(queryTeam.toString());
 
         System.out.println("=====================  Query Player Result ===================== ");
-        Player queryPlayer = playerQueryRequest.getAction().performAction("Anthony Davis");
+        Object queryPlayer = requestRecord.makeRequest(playerQueryRequest);
         System.out.println(queryPlayer.toString());
+
+        System.out.println("=====================  Read Request Result ===================== ");
+        requestRecord.readRequests();
     }
 }
